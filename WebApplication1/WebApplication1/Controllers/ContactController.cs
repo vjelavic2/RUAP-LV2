@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using System.Web.Http;
 using WebApplication1.Models;
 using WebApplication1.Models.Services;
+using System.Net.Http;
 
 namespace WebApplication1.Controllers
 {
@@ -22,6 +23,17 @@ namespace WebApplication1.Controllers
         public Contact[] Get()
         {
             return this.contactRepository.GetAllContacts();
+        }
+
+
+
+        public HttpResponseMessage Post(Contact contact)
+        {
+            this.contactRepository.SaveContact(contact);
+
+            var response = Request.CreateResponse<Contact>(System.Net.HttpStatusCode.Created, contact);
+
+            return response;
         }
     }
 }
