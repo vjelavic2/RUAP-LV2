@@ -6,9 +6,9 @@ using System.Web;
 namespace WebApplication1.Models
 {
     public class Contact
-    {
-        public int Id { get; set; }
+{
+    public int Id { get; set; }
 
-        public string Name { get; set; }
-    }
+    public string Name { get; set; }
+}
 }
